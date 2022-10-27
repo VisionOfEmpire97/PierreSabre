@@ -41,25 +41,17 @@ public class Humain {
 		}
 	}
 	
-	public void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		this.argent += gain;
 		parler("J'ai à présent " + argent + " sous en poche.");
 	}
 	
-	public void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		this.argent -= perte;
 		parler("Il me reste " + argent + " sous en poche.");
 	}
 	
-	private void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println("(" + nom +") - " + "<< " + texte + " >>");
-	}
-	
-	public static void main(String[] args) {
-		Humain prof = new Humain("Prof","café",100);
-		prof.direBonjour();
-		prof.acheter("kombucha", 12);
-		prof.boire("kombucha");
-		prof.acheter("palanquin", 1000);
 	}
 }
