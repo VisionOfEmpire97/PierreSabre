@@ -34,16 +34,21 @@ public class Humain {
 	public void acheter(String bien, int prix) {
 		int sousEnPoche = this.getArgent();
 		if (prix < sousEnPoche) {
-			parler("J'ai " + sousEnPoche + "" );
+			parler("J'ai " + sousEnPoche + " sous en poche. Je vais pouvoir m'offir " + bien + " à " + prix + " sous !" );
+			perdreArgent(prix);
+		} else {
+			parler("Je n'ai plus que " + sousEnPoche + " sous en poche. Je ne peux même pas m'offrir un " + bien + " à " + prix + " sous.");
 		}
 	}
 	
 	public void gagnerArgent(int gain) {
-		//TODO coder gain
+		this.argent += gain;
+		parler("J'ai à présent " + argent + " sous en poche.");
 	}
 	
 	public void perdreArgent(int perte) {
-		//TODO coder perdre argent
+		this.argent -= perte;
+		parler("Il me reste " + argent + " sous en poche.");
 	}
 	
 	private void parler(String texte) {
@@ -53,5 +58,8 @@ public class Humain {
 	public static void main(String[] args) {
 		Humain prof = new Humain("Prof","café",100);
 		prof.direBonjour();
+		prof.acheter("kombucha", 12);
+		prof.boire("kombucha");
+		prof.acheter("palanquin", 1000);
 	}
 }
