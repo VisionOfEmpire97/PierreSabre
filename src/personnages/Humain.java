@@ -5,7 +5,8 @@ public class Humain {
 	private String boissonFav;
 	private int argent;
 	protected int nbConnaissance = 0;
-	protected Humain[] memoire = new Humain[3];
+	private int nbConnaissanceMax = 3;
+	protected Humain[] memoire = new Humain[nbConnaissanceMax];
 	
 	public Humain(String nom, String boissonFav, int argent) {
 		this.nom = nom;
@@ -60,14 +61,14 @@ public class Humain {
 	}
 	
 	private void memoriser(Humain interlocuteur) {
-		if (this.nbConnaissance < 30) {
+		if (this.nbConnaissance < nbConnaissanceMax) {
 			memoire[nbConnaissance] = interlocuteur;
 			this.nbConnaissance += 1;
 		} else {
 			for (int i = 0; i < nbConnaissance-1; i++) {
 				memoire[i] =memoire[i+1];
 			}
-			memoire[nbConnaissance] = interlocuteur;
+			memoire[nbConnaissance-1] = interlocuteur;
 		}
 	}
 	
@@ -84,8 +85,8 @@ public class Humain {
 	public void listerConnaissance() {
 		String concat = "";
 		for (int i = 0; i < nbConnaissance; i++) {
-			concat += (memoire[nbConnaissance]).getNom();
-			if ((i+1)>=nbConnaissance ) concat += ", ";
+			concat += (memoire[i]).getNom();
+			if ((i+1)<nbConnaissance ) concat += ", ";
 		}
 		parler("Je connais beacoup de monde dont : " + concat);
 	}
