@@ -43,12 +43,14 @@ public class Humain {
 	
 	protected void gagnerArgent(int gain) {
 		this.argent += gain;
-		parler("J'ai à présent " + argent + " sous en poche.");
+		/* décommenter pour tester*/
+		//parler("J'ai à présent " + argent + " sous en poche.");
 	}
 	
 	protected void perdreArgent(int perte) {
 		this.argent -= perte;
-		parler("Il me reste " + argent + " sous en poche.");
+		/* décommenter pour tester*/
+		//parler("Il me reste " + argent + " sous en poche.");
 	}
 	
 	protected void parler(String texte) {
