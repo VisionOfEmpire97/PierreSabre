@@ -44,11 +44,13 @@ public class GrandMere extends Humain {
 	}
 	
 	public void ragoter() {
-		Humain rndMec = memoire[rnd.nextInt(nbConnaissance)];
-		if (rndMec instanceof Traitre) {
-			parler("Je sais que " + rndMec.getNom() + " est un traitre. Petit chenapan !");
-		} else {
-		parler("Je crois que " + rndMec.getNom() + " est " + humainHasard());
-		}
+		for (int i=0;i <nbConnaissance;i++) {
+			if (memoire[i] instanceof Traitre) {
+				parler("Je sais que " + memoire[i].getNom() + " est un traitre. Petit chenapan !");
+			} else {
+			parler("Je crois que " + memoire[i].getNom() + " est " + humainHasard());
+			}
+		};
+		
 	}
 }
