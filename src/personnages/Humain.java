@@ -5,7 +5,7 @@ public class Humain {
 	private String boissonFav;
 	private int argent;
 	protected int nbConnaissance = 0;
-	private int nbConnaissanceMax = 3;
+	private int nbConnaissanceMax = 30;
 	protected Humain[] memoire = new Humain[nbConnaissanceMax];
 	
 	public Humain(String nom, String boissonFav, int argent) {
