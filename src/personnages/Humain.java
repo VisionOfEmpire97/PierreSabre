@@ -5,7 +5,7 @@ public class Humain {
 	private String boissonFav;
 	private int argent;
 	protected int nbConnaissance = 0;
-	private int nbConnaissanceMax = 30;
+	protected int nbConnaissanceMax = 30;
 	protected Humain[] memoire = new Humain[nbConnaissanceMax];
 	
 	public Humain(String nom, String boissonFav, int argent) {
@@ -30,8 +30,8 @@ public class Humain {
 		parler("Bonjour! Je m'appelle " + nom + " et j'aime boire du " + boissonFav);
 	}
 	
-	public void boire(String boisson) {
-		parler("Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
+	public void boire() {
+		parler("Mmmm, un bon verre de " + boissonFav + " ! GLOUPS !");
 	}
 	
 	public void acheter(String bien, int prix) {
@@ -60,7 +60,7 @@ public class Humain {
 		System.out.println("(" + nom +") - " + "<< " + texte + " >>");
 	}
 	
-	private void memoriser(Humain interlocuteur) {
+	protected void memoriser(Humain interlocuteur) {
 		if (this.nbConnaissance < nbConnaissanceMax) {
 			memoire[nbConnaissance] = interlocuteur;
 			this.nbConnaissance += 1;
