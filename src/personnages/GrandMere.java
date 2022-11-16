@@ -21,7 +21,6 @@ public class GrandMere extends Humain {
 
 	public GrandMere(String nom, int argent) {
 		super(nom, "tisane", argent);
-		// TODO Auto-generated constructor stub
 		this.nbConnaissanceMax = 5;
 	}
 	
